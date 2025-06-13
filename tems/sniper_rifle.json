@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "yourpack:sniper_rifle",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:icon": "sniper_rifle",
+      "minecraft:display_name": { "value": "Sniper Rifle" },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.weapon"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_duration": 1,
+      "minecraft:use_animation": "bow",
+      "minecraft:cooldown": {
+        "category": "sniper_shot",
+        "duration": 30
+      },
+      "minecraft:damage": 0,
+      "minecraft:food": {
+        "can_always_eat": true,
+        "on_use": {
+          "event": "fire_sniper",
+          "target": "self"
+        }
+      }
+    },
+    "events": {
+      "fire_sniper": {
+        "run_command": {
+          "command": [
+            "function sniper_fire"
+          ]
+        }
+      }
+    }
+  }
+}
